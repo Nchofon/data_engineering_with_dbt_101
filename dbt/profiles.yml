@@ -1,0 +1,7 @@
+mock_events:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/lakehouse.duckdb
+      extensions: [json]

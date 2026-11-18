@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: bronze
+    description: Raw event micro-batches landed by ingestion/ingest.py. Append-only.
+    tables:
+      - name: events
+        meta:
+          external_location: >-
+            read_json('{{ var("lake_root") }}/bronze/events/*/*.jsonl',
+                      format='newline_delimited')
+        columns:
+          - name: event_id
+            tests: [not_null]

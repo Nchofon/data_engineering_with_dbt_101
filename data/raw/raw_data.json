@@ -1,0 +1,53 @@
+[
+    {
+        "event_id": "evt_10a8f9c2_3b4d",
+        "timestamp": "2026-11-09T14:20:15Z",
+        "event_type": "user_signup",
+        "user_id": "usr_99410",
+        "payload": {
+            "platform": "ios",
+            "country": "RWA",
+            "referral_source": "linkedin"
+        }
+    },
+    {
+        "event_id": "evt_55d2e1b4_7a1e",
+        "timestamp": "2026-11-09T14:21:02Z",
+        "event_type": "subscription_upgrade",
+        "user_id": "usr_99410",
+        "payload": {
+            "tier_from": "free_trial",
+            "tier_to": "premium_pro",
+            "billing_cycle": "annual"
+        }
+    },
+    {
+        "event_id": "",
+        "timestamp": "2026-11-09T14:22:11Z",
+        "event_type": "corrupted_log",
+        "user_id": "usr_88321",
+        "payload": {}
+    },
+    {
+        "event_id": "evt_10a8f9c2_3b4d",
+        "timestamp": "2026-11-09T14:20:15Z",
+        "event_type": "user_signup",
+        "user_id": "usr_99410",
+        "payload": {
+            "platform": "ios",
+            "country": "RWA",
+            "referral_source": "linkedin"
+        }
+    },
+    {
+        "event_id": "evt_77c3b2e1_9f4c",
+        "timestamp": "2026-11-09T14:25:30Z",
+        "event_type": "api_request",
+        "user_id": "usr_44120",
+        "payload": {
+            "endpoint": "/v1/agents/deploy",
+            "status_code": 200,
+            "latency_ms": 340
+        }
+    }
+]

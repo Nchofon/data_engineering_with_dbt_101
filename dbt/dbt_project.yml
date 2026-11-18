@@ -1,0 +1,17 @@
+name: mock_events
+version: "1.0"
+profile: mock_events
+model-paths: ["models"]
+test-paths: ["tests"]
+
+vars:
+  lake_root: "../data"            # Root directory for the lakehouse
+
+models:
+  mock_events:
+    staging:
+      +materialized: table        # Silver: persisted inside the DuckDB file
+      +schema: silver
+    marts:
+      +materialized: external     # Gold: written out as parquet in the lake
+      +schema: gold

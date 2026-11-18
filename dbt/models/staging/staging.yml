@@ -1,0 +1,23 @@
+version: 2
+models:
+  - name: stg_events
+    description: Silver layer. One row per event, typed and deduplicated.
+    columns:
+      - name: event_id
+        description: Primary identifier from the source system.
+        tests: [unique, not_null]
+      - name: event_timestamp
+        tests: [not_null]
+      - name: event_type
+        tests: [not_null]
+    unit_tests:
+      - name: dedupe_keeps_latest_ingestion
+        model: stg_events
+        given:
+          - input: ref('stg_events_typed')
+            rows:
+              - {event_id: e1, event_timestamp: "2026-11-09 14:20:15+00", event_type: x, user_id: u, payload: "{}", _batch_id: b1, _ingested_at: "20261109T000000Z"}
+              - {event_id: e1, event_timestamp: "2026-11-09 14:20:15+00", event_type: x, user_id: u, payload: "{}", _batch_id: b2, _ingested_at: "20261109T000100Z"}
+        expect:
+          rows:
+            - {event_id: e1, _batch_id: b2}

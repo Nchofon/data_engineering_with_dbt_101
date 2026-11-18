@@ -1,0 +1,24 @@
+version: 2
+models:
+  - name: fact_events
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: user_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_users')
+                field: user_id
+  - name: fact_api_requests
+    columns:
+      - name: status_code
+        tests: [not_null]
+  - name: dim_users
+    columns:
+      - name: user_id
+        tests: [unique, not_null]
+  - name: dim_event_types
+    columns:
+      - name: event_type
+        tests: [unique, not_null]

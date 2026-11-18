@@ -1,0 +1,5 @@
+paths:
+  raw: data/raw/raw_data.json
+  bronze: data/bronze/events
+  dead_letter: data/dead_letter
+batch_size: 500
